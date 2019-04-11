@@ -9,8 +9,13 @@ def index(request):
 
     for i in range(len(faculty)):
         response += "<center>"+str(faculty[i].name)+"["+str(faculty[i].simple_name)+"]</center>"
-       # cafedra =  Cafedra.objects.get(faculty_id=faculty[i].id)
-        #response += str(len(cafedra))
+        cafedra =  Cafedra.objects.filter(faculty_id=faculty[i].id)
+        if len(cafedra) != 0:
+            response += "<br/><ol>"
+            for caf in cafedra:
+                response += "<li key="+str(caf.id)+">"+str(caf.name)+ " [ "+ str(caf.simple_name)+" ];</li>"
+            response += "</ol><br/>"
+
         response += "<br/>"
 
     return HttpResponse(response)
