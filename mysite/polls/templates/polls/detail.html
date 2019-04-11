@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-    {{question}}
+<center><h1>{{question.question_text}}</h1></center>
+
+    {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+    {% endif %}
+
+<form action="/polls/{{question.vote}}" method="post">
+        {% csrf_token %}
+    {% for i in question. %}
+            <p id="{{% i.id %}}">{{% i.question_text %}}</p>
+        <br/>
+    {% endfor %}
+
+    <input type="submit" value="Отправить" />
+</form>
+
+
 </body>
 </html>

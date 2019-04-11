@@ -21,7 +21,7 @@ def detail(request, question_id):
     return render(request, 'polls/detail.html', {'question':question})
 
 def result(request, question_id):
-    response = "Вы посмотрели резултат вопроса. %s"
+    response = "Вы посмотрели результат вопроса. %s"
     return HttpResponse(response % question_id)
 
 def vote(request, question_id):

@@ -1,0 +1,5 @@
+	#Pycharm settings folder
+.idea/
+
+	#Local Sqlite DB
+mysite/*.sqlite3

@@ -16,3 +16,4 @@ class Group(models.Model):
     name = models.CharField(max_length=150)
     count_subscribes = models.IntegerField(default=0)
     descriptions = models.CharField(max_length=500)
+
