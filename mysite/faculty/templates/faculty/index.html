@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Отдельный шаблон</title>
+    </head>
+
+    <body>
+        {% if data %}
+            DATA:<br/>{{data}}
+            <br/><br/>
+
+            {% for key in data %}
+
+                {% for faculty in key %}
+                    <center>{{ faculty }}</center><br/>
+                {% endfor %}
+
+            {% endfor %}
+
+        {% endif %}
+
+    </body>
+</html>
