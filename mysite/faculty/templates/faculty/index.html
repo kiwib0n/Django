@@ -6,6 +6,41 @@
     </head>
 
     <body>
+
+        <p>
+            Добавить новый факультет
+            <form name="addNewFacultet" action="/faculty/add/" method="POST">
+                {% csrf_token %}
+                <label>Название факультета</label>
+                <input name="name" />   <br/>
+                <label>Сокращенное название</label>
+                <input name="simple_name" />
+                <button type="submit">Добавить факультет</button>
+            </form>
+        </p>
+        <br/>
+        <p>Добавить новую кафедру
+            <form name = "addNewCafedra" action="/faculty/NewCafedra/" method="POST">
+                {% csrf_token %}
+            <label>Выберите факультет: </label>
+                <select type="radio" default="1" name="facultet">
+                    {% for key in data %}
+                    {% for faculty in key %}
+                        <option value="{{faculty}}">{{faculty}}</option>
+                    {% endfor %}
+                {% endfor %}
+                </select>
+            <br/>
+            <label>Введите название кафедры</label>
+            <input name="cafedra_name" value=""/>
+            <br/>
+            <label>Сокращенное название кафедры: </label>
+            <input name="simple_name" value=""/>
+                <button type="submit">Добавить кафедру</button>
+            </form>
+        </p>
+
+        <br/>
         {% if data %}
             DATA:<br/>{{data}}
             <br/><br/>
