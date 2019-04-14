@@ -4,6 +4,10 @@ from .models import Faculty, Group, Cafedra
 from django.template import RequestContext, loader
 from django.shortcuts import redirect
 
+def FOR_TEST():
+
+    return 25
+
 def faculty_index(request):
 
     faculty = Faculty.objects.all()
