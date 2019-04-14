@@ -12,32 +12,32 @@
             Добавить новый факультет
             <form name="addNewFacultet" action="/faculty/add/" method="POST">
                 {% csrf_token %}
-                <label>Название факультета</label>
-                <input name="name" />   <br/>
+                <label class="form-control">Название факультета</label>
+                <input class="form-control" name="name" />   <br/>
                 <label>Сокращенное название</label>
-                <input name="simple_name" />
-                <button type="submit">Добавить факультет</button>
+                <input class='form-control' name="simple_name" />
+                <button class='btn btn-dark' type="submit">Добавить факультет</button>
             </form>
         </p>
         <br/>
         <p>Добавить новую кафедру
             <form name = "addNewCafedra" action="/faculty/NewCafedra/" method="POST">
                 {% csrf_token %}
-            <label>Выберите факультет: </label>
-                <select type="radio" default="1" name="facultet">
+            <label class="form-control">Выберите факультет: </label>
+                <select class="form-control" type="radio" default="1" name="facultet">
                     {% for key in data %}
                     {% for faculty in key %}
-                        <option value="{{faculty}}">{{faculty}}</option>
+                        <option class="form-control" value="{{faculty}}">{{faculty}}</option>
                     {% endfor %}
                 {% endfor %}
                 </select>
             <br/>
-            <label>Введите название кафедры</label>
-            <input name="cafedra_name" value=""/>
+            <label class="form-control">Введите название кафедры</label>
+            <input class="form-control" name="cafedra_name" value=""/>
             <br/>
-            <label>Сокращенное название кафедры: </label>
-            <input name="simple_name" value=""/>
-                <button type="submit">Добавить кафедру</button>
+            <label class="form-control" >Сокращенное название кафедры: </label>
+            <input class="form-control" name="simple_name" value=""/>
+                <button class="btn btn-dark" type="submit">Добавить кафедру</button>
             </form>
         </p>
 
