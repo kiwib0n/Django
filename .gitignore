@@ -1,5 +1,9 @@
-	#Pycharm settings folder
+# Python virtual environment
+/venv
+/venv[0-9]*
+
+# Pycharm settings folder
 .idea/
 
-	#Local Sqlite DB
+# Local Sqlite DB
 mysite/*.sqlite3
