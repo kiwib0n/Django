@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my.css' %}" />
+
+</head>
+
+
+<body>
+    <div id="header" class="container">
+        <div class="row">
+            <div class="col-2">
+                <center>
+                    <button onclick="document.location.href='../';" class="btn btn-primary">Домой</button>
+                </center>
+            </div>
+
+            <div class="col-2">
+                <center>
+                    <button onclick="document.location.href='/faculty/';" class="btn btn-dark">Факультеты</button>
+                </center>
+            </div>
+
+            <div class="col-2">
+                <center>
+                    <button onclick="document.location.href='/polls/';" class="btn btn-primary">Вопросы</button>
+                </center>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="content">
+            {% block content %}
+            {% endblock content%}
+    </div>
+</body>
+
+
+
+</html>
