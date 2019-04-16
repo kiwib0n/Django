@@ -1,13 +1,6 @@
-<!doctype html>
-<html>
+{% extends 'home/index.html' %}
 
-    <head>
-        <title>Отдельный шаблон</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-
-    <body>
-
+{% block content %}
         <p>
             Добавить новый факультет
             <form name="addNewFacultet" action="/faculty/add/" method="POST">
@@ -24,7 +17,7 @@
             <form name = "addNewCafedra" action="/faculty/NewCafedra/" method="POST">
                 {% csrf_token %}
             <label class="form-control">Выберите факультет: </label>
-                <select class="form-control" type="radio" default="1" name="facultet">
+                <select required class="form-control" type="radio" default="1" name="facultet">
                     {% for key in data %}
                     {% for faculty in key %}
                         <option class="form-control" value="{{faculty}}">{{faculty}}</option>
@@ -33,28 +26,30 @@
                 </select>
             <br/>
             <label class="form-control">Введите название кафедры</label>
-            <input class="form-control" name="cafedra_name" value=""/>
+            <input required class="form-control" name="cafedra_name" value=""/>
             <br/>
             <label class="form-control" >Сокращенное название кафедры: </label>
-            <input class="form-control" name="simple_name" value=""/>
+            <input required class="form-control" name="simple_name" value=""/>
                 <button class="btn btn-dark" type="submit">Добавить кафедру</button>
             </form>
         </p>
-
         <br/>
         {% if data %}
             DATA:<br/>{{data}}
             <br/><br/>
-
             {% for key in data %}
-
-                {% for faculty in key %}
-                    <center>{{ faculty }}</center><br/>
+                {% for faculty in key.items %}
+                    {% with faculty_name=faculty|first cafedras=faculty|last|first %}
+                        <p><center>{{faculty_name}}</center></p>
+                        <ul name="{{faculty_name}}">
+                            {% for cafedra in cafedras%}
+                            <li>{{cafedra}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endwith %}
                 {% endfor %}
 
             {% endfor %}
 
         {% endif %}
-
-    </body>
-</html>
+{% endblock content %}

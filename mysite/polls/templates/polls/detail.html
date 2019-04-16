@@ -1,7 +1,11 @@
-<h1> {{ question.question_text}}</h1>
+{% extends 'home/index.html' %}
 
-{% if error_message %} <p><strong>{{error_merssage}}</strong></p> {% endif %}
-<form action="/polls/{{question.id}}/vote" method="POST">
-    {% csrf_token %}
-    <button type="submit" name="choice" value="{{question.id}}">Ответить на {{question.id}} вопрос</button>
-</form>
+{% block content %}
+    <h1> {{ question.question_text}}</h1>
+
+    {% if error_message %} <p><strong>{{error_merssage}}</strong></p> {% endif %}
+    <form action="/polls/{{question.id}}/vote" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="choice" value="{{question.id}}">Ответить на {{question.id}} вопрос</button>
+    </form>
+{% endblock content %}

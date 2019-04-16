@@ -18,7 +18,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-
+        #source
+    url('', include('home.urls')),
         #/faculty/
     url('faculty/', include('faculty.urls')),
         #/polls/
