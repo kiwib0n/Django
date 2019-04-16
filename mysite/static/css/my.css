@@ -42,6 +42,17 @@
 
 }
 
+#app{
+    border-color:2px solid red;
+    color:blue;
+    font-size: 25px;
+    font-family: "Tempus Sans ITC";
+    color: lawngreen;
+}
+
+#app input{
+    width:250px;
+}
 
 body{
     overflow-x:hidden;

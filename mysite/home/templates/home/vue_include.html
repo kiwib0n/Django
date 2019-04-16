@@ -1,0 +1,37 @@
+{% verbatim %}
+
+            <div id="app">
+                <ol>
+             <li id="1">
+                 {{ message }}
+
+                <button class="btn btn-info" @click="revers">Перевернуть</button>
+             </li>
+<br/>
+                <li  id="2">
+                    <span v-if="seen">Видно</span>
+                    <button @click='hide' class="btn btn-info">{{ text }}</button>
+                </li>
+<br/>
+                    <li id="3">
+                        Вы ввели:<p>{{message}}</p>
+                        <input class="form-control" v-model="message" />
+                    </li>
+<br/>
+                    <li id="4">
+                        <ul>
+                            <li v-for="todo in todos">
+                                <p>{{ todo.text }} <button @click="remove(todo.key)" class="btn btn-danger">Удалить</button></p>
+                            </li>
+                        </ul>
+                    </li>
+<br/>
+            <li id="5">
+                Введите задачу: <input id="Todo" type="text" class="form-control" />
+                <button @click="addTodo" class="btn btn-primary">Добавить</button>
+            </li>
+
+                </ol>
+            </div>
+
+        {% endverbatim %}

@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/my.css' %}" />
-
+    <script src="{% static 'js/vue.js' %}"></script>
 </head>
 
 
 <body>
+
     <div id="header" class="container">
         <div class="row">
             <div class="col-2">
@@ -38,8 +38,15 @@
 
     <div class="container" id="content">
             {% block content %}
+
+                {% include 'home/vue_include.html' %}
+
             {% endblock content%}
     </div>
+
+            {% load static %}
+    <script src="{% static 'js/my.js' %}"></script>
+
 </body>
 
 
